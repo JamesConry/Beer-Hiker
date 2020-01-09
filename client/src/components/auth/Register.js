@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import NavBarOut from "../NavBarOut/NavBarOut";
 
 class Register extends Component {
   constructor() {
@@ -53,6 +54,9 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
+      <div>
+
+      <NavBarOut />
       <div className="container">
         <div className="row">
           <div className="col s8 offset-s2">
@@ -142,6 +146,7 @@ class Register extends Component {
             </form>
           </div>
         </div>
+      </div>
       </div>
     );
   }
