@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import 'bulma/css/bulma.css'
+import NavBarIn from "../NavBarIn/NavBarIn";
 
 class Beer extends Component {
     render() {
       return (
-        
+        <div>
+          <NavBarIn />
         <div className="container">
           <br />
           <div className="row center">
@@ -143,20 +144,8 @@ class Beer extends Component {
               </div>
             </div>
           </div>
-          <Link
-                to="/dashboard"
-                style={{
-                  width: "150px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px",
-                  marginTop: "1rem"
-                }}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-              >
-                Home
-              </Link>
         </div>
-        
+        </div>
       
       );
     }
