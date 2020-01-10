@@ -22,7 +22,6 @@ module.exports = {
   //     .catch(err => res.status(422).json(err));
   // },
   updateSearches: function(req, res) {
-    console.log(req.body,"*****************************************************************************");
     db
       .findOneAndUpdate({ _id: req.params.id }, {search: req.body})
       .then(dbModel => res.json(dbModel))

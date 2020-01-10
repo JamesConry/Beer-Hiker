@@ -188,6 +188,7 @@ class Beer extends Component {
                           letterSpacing: "1.5px",
                           marginTop: "1rem"
                         }}
+                        onClick = {this.saveSearch}
                         className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                       >
                         Submit
