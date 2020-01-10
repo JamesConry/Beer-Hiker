@@ -3,8 +3,8 @@ const profileController = require("../../controllers/profileController");
 
 
 
-router.route("/maps")
-  .get(profileController.findUserSearch)
-  .update(profileController.updateMaps);
+// router.route("/:id")
+//   .get(profileController.findUserSearch)
+//   .put(profileController.updateMaps);
 
 module.exports = router;

@@ -1,8 +1,45 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import 'bulma/css/bulma.css'
+import API from "../../utils/API";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions"
 
 class Beer extends Component {
+
+  state = {
+    user: this.props.auth,
+    // search: ""
+    // author: "",
+    // synopsis: ""
+  };
+
+  // componentDidMount() {
+  //   const { user } = this.props.auth;
+  // }
+
+  saveSearch = () => {
+    let state = "Alabama";
+    let city = "";
+    let name = "";
+    let type = "";
+    let searchData = [state, city, name, type];
+    API.saveSearch(searchData, this.state.user.user.id)
+      .then(res => console.log(res));
+  };
+
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
+
+  onSearchClick = e => {
+    e.preventDefault();
+    
+  };
+
+
     render() {
       return (
         
@@ -24,7 +61,7 @@ class Beer extends Component {
                 </div>
                 <div className="field-body">
                   <div className="field">
-                    <input className="input" type="text" placeholder="City" />
+                    <input className="input" type="text" placeholder="City" id="city"/>
                     <p />
                   </div>
                 </div>
@@ -37,13 +74,13 @@ class Beer extends Component {
                   <div className="field is-wide">
                     <div className="control">
                       <div className="select is-fullwidth">
-                        <select>
+                        <select id="state">
                           <option value />
-                          <option value="AL">Alabama</option>
+                          <option value="Alabama">Alabama</option>
                           <option value="AK">Alaska</option>
                           <option value="AR">Arkansas</option>
                           <option value="AZ">Arizona</option>
-                          <option value="CA">California</option>w
+                          <option value="CA">California</option>
                           <option value="CO">Colorado</option>
                           <option value="CT">Connecticut</option>
                           <option value="DE">Delaware</option>
@@ -103,7 +140,7 @@ class Beer extends Component {
                 </div>
                 <div className="field-body">
                   <div className="field">
-                    <input className="input" type="text" placeholder="Optional" />
+                    <input className="input" type="text" placeholder="Optional" id="name"/>
                     <p />
                   </div>
                 </div>
@@ -116,12 +153,12 @@ class Beer extends Component {
                   <div className="field is-wide">
                     <div className="control">
                       <div className="select is-fullwidth">
-                        <select>
+                        <select id="type">
                           <option value>Optional</option>
                           <option value="Pub">Pub</option>
                           <option value="Micro">Micro Brewery</option>
                           <option value="Bar">Bar</option>
-                          <option value="Rest">Restaurant</option>
+                          <option value="Restaurant">Restaurant</option>
                         </select>
                       </div>
                     </div>
@@ -134,7 +171,7 @@ class Beer extends Component {
                 <div className="field-body">
                   <div className="field">
                     <div className="control">
-                      <button className="button is-primary">
+                      <button className="button is-primary" onClick = {this.saveSearch}>
                         <strong>Submit</strong>
                       </button>
                     </div>
@@ -161,6 +198,21 @@ class Beer extends Component {
       );
     }
   }
+
+  Beer.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+  };
   
-  export default Beer;
+  const mapStateToProps = state => ({
+    auth: state.auth
+  });
+  
+  export default connect(
+    mapStateToProps,
+    { logoutUser }
+  )(Beer);
+  
+  
+  // export default Beer;
   

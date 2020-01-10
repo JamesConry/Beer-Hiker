@@ -7,7 +7,7 @@ const savedRoutes = require("./saved");
 // Book routes
 router.use("/users", userRoutes);
 router.use("/searches", profileRoutes);
-router.use("/maps", mapRoutes);
-router.use("/saved", savedRoutes);
+// router.use("/maps", mapRoutes);
+// router.use("/saved", savedRoutes);
 
 module.exports = router;

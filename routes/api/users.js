@@ -106,12 +106,4 @@ router.post("/login", (req, res) => {
   });
 });
 
-// router.update("/searches", (req, res) => {
-//   User
-//       .findOneAndUpdate({ email: req.params.email }, {search: req.params.search})
-//       .then(dbModel => res.json(dbModel))
-//       .catch(err => res.status(422).json(err));
-// });
-
-
 module.exports = router;

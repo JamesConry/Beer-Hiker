@@ -1,10 +1,8 @@
 const router = require("express").Router();
 const profileController = require("../../controllers/profileController");
 
-
-
-router.route("/searches")
-  .get(profileController.findUserSearch)
-  .update(profileController.updateSearches);
+router.route("/:id")
+  // .get(profileController.findRandom)
+  .put(profileController.updateSearches);
 
 module.exports = router;
