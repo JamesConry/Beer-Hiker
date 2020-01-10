@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import 'bulma/css/bulma.css'
 import NavBarIn from "../NavBarIn/NavBarIn";
+import { Link } from "react-router-dom";
 
 // import { Link } from "react-router-dom";
 
@@ -22,7 +23,7 @@ class Results extends Component {
           <div className="container" >
             <div>
             <label className="checkbox">
-              <input type="checkbox"></input>
+              <input type="checkbox">Test</input>
             </label>
             </div>
             <div className="section" >
@@ -41,6 +42,14 @@ class Results extends Component {
                 </div>
               </div>
             </div>
+          </div>
+          <div className={`right`}>
+            <Link to="/beer">
+              <button class="button is-primary has-text-weight-bold">New Search</button>
+            </Link>
+            <Link to="/map">
+              <button onClick={this.onLogoutClick} class="button is-black has-text-weight-bold">Map</button>
+            </Link>
           </div>
         </div>
       </div>

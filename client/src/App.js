@@ -12,8 +12,9 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-import Beer from "./components/beer/Beer"
-import Results from "./components/results/Results"
+import Beer from "./components/beer/Beer";
+import Results from "./components/results/Results";
+import Map from "./components/map/Map";
 
 import "./App.css";
 
@@ -49,6 +50,7 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/beer" component={Beer} />
               <PrivateRoute exact path="/results" component={Results} />
+              <PrivateRoute exact path="/map" component={Map} />
             </Switch>
           </div>
         </Router>
