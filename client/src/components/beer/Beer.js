@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import 'bulma/css/bulma.css'
+import 'bulma/css/bulma.css';
+import { Link } from "react-router-dom";
 import NavBarIn from "../NavBarIn/NavBarIn";
 
 class Beer extends Component {
@@ -134,11 +135,23 @@ class Beer extends Component {
                 </div>
                 <div className="field-body">
                   <div className="field">
-                    <div className="control">
+                    <Link
+                        to="/results"
+                        style={{
+                          width: "150px",
+                          borderRadius: "3px",
+                          letterSpacing: "1.5px",
+                          marginTop: "1rem"
+                        }}
+                        className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                      >
+                        Submit
+                      </Link>
+                    {/* <div className="control">
                       <button className="button is-primary">
                         <strong>Submit</strong>
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
