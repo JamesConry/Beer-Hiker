@@ -10,9 +10,10 @@ class Beer extends Component {
 
   state = {
     user: this.props.auth,
-    // search: ""
-    // author: "",
-    // synopsis: ""
+    city: "",
+    state: "",
+    type: "",
+    name: ""
   };
 
   // componentDidMount() {
@@ -20,11 +21,7 @@ class Beer extends Component {
   // }
 
   saveSearch = () => {
-    let state = "Alabama";
-    let city = "";
-    let name = "";
-    let type = "";
-    let searchData = [state, city, name, type];
+    let searchData = [this.state.state, this.state.city, this.state.name, this.state.type];
     API.saveSearch(searchData, this.state.user.user.id)
       .then(res => console.log(res));
   };
@@ -37,6 +34,13 @@ class Beer extends Component {
   onSearchClick = e => {
     e.preventDefault();
     
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
   };
 
 
@@ -62,7 +66,7 @@ class Beer extends Component {
                 </div>
                 <div className="field-body">
                   <div className="field">
-                    <input className="input" type="text" placeholder="City" id="city"/>
+                    <input className="input" type="text" placeholder="City" name="city" onChange={this.handleInputChange}/>
                     <p />
                   </div>
                 </div>
@@ -75,60 +79,60 @@ class Beer extends Component {
                   <div className="field is-wide">
                     <div className="control">
                       <div className="select is-fullwidth">
-                        <select id="state">
+                        <select name="state" onChange={this.handleInputChange}>
                           <option value />
                           <option value="Alabama">Alabama</option>
-                          <option value="AK">Alaska</option>
-                          <option value="AR">Arkansas</option>
-                          <option value="AZ">Arizona</option>
-                          <option value="CA">California</option>
-                          <option value="CO">Colorado</option>
-                          <option value="CT">Connecticut</option>
-                          <option value="DE">Delaware</option>
-                          <option value="DC">District of Columbia</option>
-                          <option value="FL">Florida</option>
-                          <option value="GA">Georgia</option>
-                          <option value="HI">Hawaii</option>
-                          <option value="ID">Idaho</option>
-                          <option value="IL">Illinois</option>
-                          <option value="IN">Indiana</option>
-                          <option value="IA">Iowa</option>
-                          <option value="KS">Kansas</option>
-                          <option value="KY">Kentucky</option>
-                          <option value="LA">Louisiana</option>
-                          <option value="ME">Maine</option>
-                          <option value="MD">Maryland</option>
-                          <option value="MA">Massachusetts</option>
-                          <option value="MI">Michigan</option>
-                          <option value="MN">Minnesota</option>
-                          <option value="MS">Mississippi</option>
-                          <option value="MO">Missouri</option>
-                          <option value="MT">Montana</option>
-                          <option value="NE">Nebraska</option>
-                          <option value="NV">Nevada</option>
-                          <option value="NH">New Hampshire</option>
-                          <option value="NJ">New Jersey</option>
-                          <option value="NM">New Mexico</option>
-                          <option value="NY">New York</option>
-                          <option value="NC">North Carolina</option>
-                          <option value="ND">North Dakota</option>
-                          <option value="OH">Ohio</option>
-                          <option value="OK">Oklahoma</option>
-                          <option value="OR">Oregon</option>
-                          <option value="PA">Pennsylvania</option>
-                          <option value="PR">Puerto Rico</option>
-                          <option value="RI">Rhode Island</option>
-                          <option value="SC">South Carolina</option>
-                          <option value="SD">South Dakota</option>
-                          <option value="TN">Tennessee</option>
-                          <option value="TX">Texas</option>
-                          <option value="UT">Utah</option>
-                          <option value="VT">Vermont</option>
-                          <option value="VA">Virginia</option>
-                          <option value="WA">Washington</option>
-                          <option value="WV">West Virginia</option>
-                          <option value="WI">Wisconsin</option>
-                          <option value="WY">Wyoming</option>
+                          <option value="Alaska">Alaska</option>
+                          <option value="Arkansas">Arkansas</option>
+                          <option value="Arizona">Arizona</option>
+                          <option value="California">California</option>
+                          <option value="Colorado">Colorado</option>
+                          <option value="Connecticut">Connecticut</option>
+                          <option value="Delaware">Delaware</option>
+                          <option value="District_of_Columbia">District of Columbia</option>
+                          <option value="Florida">Florida</option>
+                          <option value="Georgia">Georgia</option>
+                          <option value="Hawaii">Hawaii</option>
+                          <option value="Idaho">Idaho</option>
+                          <option value="Illinois">Illinois</option>
+                          <option value="Indiana">Indiana</option>
+                          <option value="Iowa">Iowa</option>
+                          <option value="Kansas">Kansas</option>
+                          <option value="Kentucky">Kentucky</option>
+                          <option value="Louisiana">Louisiana</option>
+                          <option value="Maine">Maine</option>
+                          <option value="Maryland">Maryland</option>
+                          <option value="Massachusetts">Massachusetts</option>
+                          <option value="Michigan">Michigan</option>
+                          <option value="Minnesota">Minnesota</option>
+                          <option value="Mississippi">Mississippi</option>
+                          <option value="Missouri">Missouri</option>
+                          <option value="Montana">Montana</option>
+                          <option value="Nebraska">Nebraska</option>
+                          <option value="Nevada">Nevada</option>
+                          <option value="New_Hampshire">New Hampshire</option>
+                          <option value="New_Jersey">New Jersey</option>
+                          <option value="New_Mexico">New Mexico</option>
+                          <option value="New_York">New York</option>
+                          <option value="North_Carolina">North Carolina</option>
+                          <option value="North_Dakota">North Dakota</option>
+                          <option value="Ohio">Ohio</option>
+                          <option value="Oklahoma">Oklahoma</option>
+                          <option value="Oregon">Oregon</option>
+                          <option value="Pennsylvania">Pennsylvania</option>
+                          <option value="Puerto_Rico">Puerto Rico</option>
+                          <option value="Rhode_Island">Rhode Island</option>
+                          <option value="Sout_Carolina">South Carolina</option>
+                          <option value="South_Dakota">South Dakota</option>
+                          <option value="Tennessee">Tennessee</option>
+                          <option value="Texas">Texas</option>
+                          <option value="Utah">Utah</option>
+                          <option value="Vermont">Vermont</option>
+                          <option value="Virginia">Virginia</option>
+                          <option value="Washington">Washington</option>
+                          <option value="West_Virginia">West Virginia</option>
+                          <option value="Wisconsin">Wisconsin</option>
+                          <option value="Wyoming">Wyoming</option>
                         </select>
                       </div>
                     </div>
@@ -141,7 +145,7 @@ class Beer extends Component {
                 </div>
                 <div className="field-body">
                   <div className="field">
-                    <input className="input" type="text" placeholder="Optional" id="name"/>
+                    <input className="input" type="text" placeholder="Optional" name="name" onChange={this.handleInputChange}/>
                     <p />
                   </div>
                 </div>
@@ -154,12 +158,16 @@ class Beer extends Component {
                   <div className="field is-wide">
                     <div className="control">
                       <div className="select is-fullwidth">
-                        <select id="type">
+                        <select name="type" onChange={this.handleInputChange}>
                           <option value>Optional</option>
-                          <option value="Pub">Pub</option>
-                          <option value="Micro">Micro Brewery</option>
-                          <option value="Bar">Bar</option>
-                          <option value="Restaurant">Restaurant</option>
+                          <option value="bar">Bar</option>
+                          <option value="micro">Micro Brewery</option>
+                          <option value="regional">Regional Brewery</option>
+                          <option value="brewpub">Brewpub</option>
+                          <option value="large">Large Brewery</option>
+                          <option value="planning">In planning</option>
+                          <option value="contract">Contract Brewery</option>
+                          <option value="proprietor">Proprietor</option>
                         </select>
                       </div>
                     </div>
