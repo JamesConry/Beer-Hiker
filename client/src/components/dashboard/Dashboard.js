@@ -3,10 +3,16 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { Link } from "react-router-dom";
+import API from "../../utils/API";
 import NavBarIn from "../NavBarIn/NavBarIn"
 
 class Dashboard extends Component {
 
+
+  onSearchClick = e => {
+    e.preventDefault();
+    
+  }
 
   render() {
     const { user } = this.props.auth;
