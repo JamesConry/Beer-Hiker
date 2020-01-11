@@ -37,11 +37,18 @@ module.exports = {
   findUserSearch: function(req, res) {
     db
       .findOne({_id: req.params.id})
-      .then(dbModel => res.json(dbModel));
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   updateMaps: function(req, res) {
     db
       .findOneAndUpdate({ _id: req.params.id }, {mapBreweries: req.params.mapBreweries})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  updateSaved: function(req, res) {
+    db
+      .findOneAndUpdate({ _id: req.params.id }, {savedBreweries: req.params.savedBreweries})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

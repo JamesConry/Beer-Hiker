@@ -24,7 +24,6 @@ class Beer extends Component {
   saveSearch = () => {
     let searchData = [this.state.state, this.state.city, this.state.name, this.state.type];
     API.saveSearch(searchData, this.state.user.user.id)
-      .then(res => console.log(res));
   };
 
   onLogoutClick = e => {

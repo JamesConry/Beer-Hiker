@@ -2,10 +2,61 @@ import React, { Component } from "react";
 import 'bulma/css/bulma.css'
 import NavBarIn from "../NavBarIn/NavBarIn";
 import { Link } from "react-router-dom";
+import API from "../../utils/API";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions"
 
 // import { Link } from "react-router-dom";
 
 class Results extends Component {
+
+  state = {
+    user: this.props.auth,
+    searchData: [],
+    searchResults: [],
+    toMap: []
+  };
+  
+
+   componentDidMount() {
+    
+     this.loadUserData();     
+    
+  }
+
+  loadUserData = () => {
+    API.getSearchData(this.state.user.user.id)
+      .then(res =>
+        this.setUserState(res.data),
+      ).then(()=>
+        this.getBreweryData()
+      )
+      .catch(err => console.log(err));
+  }
+
+  getBreweryData = () => {
+    API.getBreweries(this.state.searchData.search[0],this.state.searchData.search[1],this.state.searchData.search[2],this.state.searchData.search[3])
+      .then(res =>
+        this.setResultState(res.data),
+      )
+      .catch(err => console.log(err));
+  }
+
+  setUserState = (data) => {
+    this.setState({searchData: data});
+  }
+
+  setResultState = (data) => {
+    this.setState({searchResults: data})
+  }
+
+  onSearchClick = e => {
+    e.preventDefault();
+
+  };
+
+
   render() {
     return (
       <div>
@@ -22,9 +73,9 @@ class Results extends Component {
           <br />
           <div className="container" >
             <div>
-            <label className="checkbox">
+            {/* <label className="checkbox">
               <input type="checkbox">Test</input>
-            </label>
+            </label> */}
             </div>
             <div className="section" >
               <div className="card is-horizontal columns" >
@@ -45,11 +96,12 @@ class Results extends Component {
           </div>
           <div className={`right`}>
             <Link to="/beer">
-              <button class="button is-primary has-text-weight-bold">New Search</button>
+              <button className="button is-primary has-text-weight-bold">New Search</button>
             </Link>
             <Link to="/map">
-              <button onClick={this.onLogoutClick} class="button is-black has-text-weight-bold">Map</button>
+              <button onClick={this.onSearchClick} className="button is-black has-text-weight-bold">Map</button>
             </Link>
+            <button onClick={this.onSearchClick} className="button is-black has-text-weight-bold">Testing</button>
           </div>
         </div>
       </div>
@@ -59,7 +111,21 @@ class Results extends Component {
   }
 };
 
-export default Results;
+
+Results.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Results);
+// export default Results;
 
 
 
