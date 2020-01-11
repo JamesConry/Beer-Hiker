@@ -2,7 +2,23 @@ import React, { Component } from "react";
 import 'bulma/css/bulma.css';
 import { Link } from "react-router-dom";
 import NavBarIn from "../NavBarIn/NavBarIn";
+import HEREMap from "react-here-maps";
 
+ //Step 1: initialize communication with the platform
+    // In your own code, replace variable window.apikey with your own apikey
+    var platform = new H.service.Platform({
+      apikey: 'y9zAgfmXparcQIOYyJc5p2vZk7myObDlBJuy5hwsvjo'
+    });
+    var defaultLayers = platform.createDefaultLayers();
+
+    //Step 2: initialize a map - this map is centered the first stop in the user list (brew0)
+
+    map = new H.Map(document.getElementById('mapContainer'),
+      defaultLayers.vector.normal.map,{
+      center: {lat:startLatitude, lng:startLongitude},
+      zoom: 8,
+      pixelRatio: window.devicePixelRatio || 1
+    });
 class Map extends Component {
     render() {
       return (
