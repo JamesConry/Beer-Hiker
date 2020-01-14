@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import 'bulma/css/bulma.css';
 import { Link } from "react-router-dom";
 import NavBarIn from "../NavBarIn/NavBarIn";
+import API from "../../utils/API";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions"
 
 class Map extends Component {
     render() {
@@ -35,8 +39,22 @@ class Map extends Component {
       );
     }
   };
+
+  Map.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+  };
   
-  export default Map;
+  const mapStateToProps = state => ({
+    auth: state.auth
+  });
+  
+  export default connect(
+    mapStateToProps,
+    { logoutUser }
+  )(Map);
+  
+  // export default Map;
   
   
   
