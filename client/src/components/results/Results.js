@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions"
+import { logoutUser } from "../../actions/authActions";
+import "../results/Results.css";
+
 
 // import { Link } from "react-router-dom";
 
@@ -52,7 +54,7 @@ class Results extends Component {
   }
 
   onSearchClick = e => {
-    e.preventDefault();
+    // e.preventDefault();
 
   };
 
@@ -71,19 +73,28 @@ class Results extends Component {
             </h1>
           </div>
           <br />
+          <form>
           <div className="container" >
-            <div>
+            
+          
+          
             {/* <label className="checkbox">
               <input type="checkbox">Test</input>
             </label> */}
-            </div>
+            
+            
+            
             <div className="section" >
               <div className="card is-horizontal columns" >
                 <div className="card-image column is-three-fifths" >
 
-                
+              
 
                   <div className="media-content">
+                    <label class="containerCheck">
+                      <input type="checkbox"/>
+                      <span class="checkmark"></span>
+                    </label>
                     <p className="title is-4">Once upon a time there was a sailor</p>
                   </div>
 
@@ -94,6 +105,7 @@ class Results extends Component {
               </div>
             </div>
           </div>
+          </form>
           <div className={`right`}>
             <Link to="/beer">
               <button className="button is-primary has-text-weight-bold">New Search</button>
@@ -101,7 +113,7 @@ class Results extends Component {
             <Link to="/map">
               <button onClick={this.onSearchClick} className="button is-black has-text-weight-bold">Map</button>
             </Link>
-            <button onClick={this.onSearchClick} className="button is-black has-text-weight-bold">Testing</button>
+            {/* <button onClick={this.onSearchClick} className="button is-black has-text-weight-bold">Testing</button> */}
           </div>
         </div>
       </div>
