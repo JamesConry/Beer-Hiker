@@ -12,6 +12,9 @@ export default {
     },
     saveResults: function(id, resultData) {
       return axios.put("api/maps/"+id, resultData);
+    },
+    saveFavorites: function(id, favoriteData) {
+      return axios.put("api/saved/"+id, favoriteData);
     }
     
 

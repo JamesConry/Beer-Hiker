@@ -10,16 +10,12 @@ import { logoutUser } from "../../actions/authActions"
 class Map extends Component {
   state = {
     user: this.props.auth,
-    // searchData: [],
-    // searchResults: [],
     toMap: [],
     toSave: []
   };
 
   componentDidMount() {
-    
-    this.loadMapData();     
-   
+  this.loadMapData();     
  }
 
  loadMapData = () => {
@@ -38,6 +34,7 @@ class Map extends Component {
 
 loadMap = () => {
   //for putting in the map on page
+  console.log(this.state.toMap)
 }
 
 
@@ -57,14 +54,20 @@ loadMap = () => {
             </div>
             <br />
             <div className="container" >
-              
+            {this.state.toMap.length ? (
+              this.state.toMap.map(brew => (
+                console.log("holder")
+               ))
+              ) : (
+                <h3>No Results to Display</h3>
+              )}
             </div>
             <div className={`right`}>
               <Link to="/beer">
-                <button class="button is-primary has-text-weight-bold">New Search</button>
+                <button className="button is-primary has-text-weight-bold">New Search</button>
               </Link>
               <Link to="/map">
-                <button class="button is-black has-text-weight-bold">Save Breweries</button>
+                <button className="button is-black has-text-weight-bold">Save Breweries</button>
               </Link>
             </div>
           </div>
