@@ -42,13 +42,13 @@ module.exports = {
   },
   updateMaps: function(req, res) {
     db
-      .findOneAndUpdate({ _id: req.params.id }, {mapBreweries: req.params.mapBreweries})
+      .findOneAndUpdate({ _id: req.params.id }, {mapBreweries: req.body})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   updateSaved: function(req, res) {
     db
-      .findOneAndUpdate({ _id: req.params.id }, {savedBreweries: req.params.savedBreweries})
+      .findOneAndUpdate({ _id: req.params.id }, {savedBreweries: req.body})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
