@@ -21,9 +21,9 @@ class NavBarIn extends Component {
             </div>
             <div className={`right`}>
                 <Link to="/dashboard">
-                <button className="button is-warning has-text-weight-bold">User Profile</button>
+                <button className="button is-warning hoverable has-text-weight-bold">User Profile</button>
                 </Link>
-                <button onClick={this.onLogoutClick} className="button is-warning has-text-weight-bold">Logout</button>
+                <button onClick={this.onLogoutClick} className="button is-warning hoverable has-text-weight-bold">Logout</button>
             </div>
         </div>
         );

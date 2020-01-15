@@ -99,7 +99,10 @@ class Results extends Component {
                         <p className="title is-4">{brew.name}</p>
                       </div>
                       <div className="content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. 
+                        <p className="breweryTypeAddress is-5">{brew.brewery_type} | {brew.street}, {brew.city} | {brew.phone}</p>
+                        <a>{brew.website_url}</a>
+                        
+
                       </div>
                     </div>
                   </div>
@@ -112,10 +115,10 @@ class Results extends Component {
           </form>
           <div className={`right`}>
             <Link to="/beer">
-              <button className="button is-primary has-text-weight-bold">New Search</button>
+              <button className="button is-warning hoverable has-text-weight-bold">New Search</button>
             </Link>
             <Link to="/map">
-              <button onClick={this.onSearchClick} className="button is-black has-text-weight-bold">Map</button>
+              <button onClick={this.onSearchClick} className="button is-warning hoverable has-text-weight-bold">Map</button>
             </Link>
           </div>
         </div>
