@@ -4,9 +4,8 @@ export default {
       return axios.get("https://api.openbrewerydb.org/breweries?by_name="+name+"&by_state="+state+"&by_city="+city+"&by_type=" + type);
     },
     saveSearch: function(searchData, id) {
-          return axios.put("/api/searches/"+id, searchData);
-        },
-
+      return axios.put("/api/searches/"+id, searchData);
+    },
     getSearchData: function(id) {
       return axios.get("api/searches/"+id);
     },

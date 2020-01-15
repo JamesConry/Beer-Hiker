@@ -17,10 +17,6 @@ class Beer extends Component {
     name: ""
   };
 
-  // componentDidMount() {
-  //   const { user } = this.props.auth;
-  // }
-
   saveSearch = () => {
     let searchData = [this.state.state, this.state.city, this.state.name, this.state.type];
     API.saveSearch(searchData, this.state.user.user.id)
@@ -48,29 +44,28 @@ class Beer extends Component {
       return (
         <div>
           <NavBarIn />
-        <div className="container">
-          <br />
-          <div className="row center">
-          
-             <h1>
+          <div className="container">
+            <br />
+            <div className="row center">
+              <h1>
                 {" "}
                 <span>SEARCH FOR A BREWERY</span>
               </h1>
-          </div>
-                <br />
-          <div className="columns is-centered">
-            <div className="column is-two-thirds">
-              <div className="field is-horizontal">
-                <div className="field-label is-normal">
-                  <label className="label">City</label>
-                </div>
-                <div className="field-body">
-                  <div className="field">
-                    <input className="input" type="text" placeholder="City" name="city" onChange={this.handleInputChange}/>
-                    <p />
+            </div>
+            <br />
+            <div className="columns is-centered">
+              <div className="column is-two-thirds">
+                <div className="field is-horizontal">
+                  <div className="field-label is-normal">
+                    <label className="label">City</label>
+                  </div>
+                  <div className="field-body">
+                    <div className="field">
+                      <input className="input" type="text" placeholder="City" name="city" onChange={this.handleInputChange}/>
+                      <p />
+                    </div>
                   </div>
                 </div>
-              </div>
               <div className="field is-horizontal">
                 <div className="field-label is-normal">
                   <label className="label">State</label>
@@ -192,12 +187,6 @@ class Beer extends Component {
                       >
                         Submit
                       </Link>
-                    {/* <div className="control">
-                      <button className="button is-primary">
-
-                        <strong>Submit</strong>
-                      </button>
-                    </div> */}
                   </div>
                 </div>
               </div>
@@ -223,7 +212,4 @@ class Beer extends Component {
     mapStateToProps,
     { logoutUser }
   )(Beer);
-  
-  
-  // export default Beer;
   
