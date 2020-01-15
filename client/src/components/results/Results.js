@@ -99,7 +99,10 @@ class Results extends Component {
                         <p className="title is-4">{brew.name}</p>
                       </div>
                       <div className="content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. 
+                        <p className="breweryTypeAddress is-5">{brew.brewery_type} | {brew.street}, {brew.city} | {brew.phone}</p>
+                        <a>{brew.website_url}</a>
+                        
+
                       </div>
                     </div>
                   </div>
