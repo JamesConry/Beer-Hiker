@@ -82,9 +82,50 @@ class Results extends Component {
               <input type="checkbox">Test</input>
             </label> */}
             
+
+            {this.state.searchResults.length ? (
+              // <List>
+                this.state.searchResults.map(brew => (
+                  // <ListItem key={brew._id}>
+                  //   <Link to={"/brews/" + brew._id}>
+                  //     <strong>
+                  //       {brew.volumeInfo.title} by {brew.volumeInfo.authors}
+                  //     </strong>
+                  //   </Link>
+                  //   {/* <DeleteBtn onClick={() => this.deletebrew(brew._id)} /> */}
+                  //   <FormBtn onClick={() => this.handlebrewSave(brew)}>
+                  //   Save brew
+                  //   </FormBtn>
+                  // </ListItem>
+                  <div className="section" >
+              <div className="card is-horizontal columns" >
+                <div className="card-image column is-three-fifths" >
+
+              
+
+                  <div className="media-content">
+                    <label className="containerCheck">
+                      <input type="checkbox"/>
+                      <span className="checkmark"></span>
+                    </label>
+                <p className="title is-4">{brew.name}</p>
+                  </div>
+
+                  <div className="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. 
+                  </div>
+                </div>
+              </div>
+            </div>
+
+                ))
+              
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
             
             
-            <div className="section" >
+            {/* <div className="section" >
               <div className="card is-horizontal columns" >
                 <div className="card-image column is-three-fifths" >
 
@@ -103,7 +144,7 @@ class Results extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           </form>
           <div className={`right`}>
