@@ -8,6 +8,40 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions"
 
 class Map extends Component {
+  state = {
+    user: this.props.auth,
+    // searchData: [],
+    // searchResults: [],
+    toMap: [],
+    toSave: []
+  };
+
+  componentDidMount() {
+    
+    this.loadMapData();     
+   
+ }
+
+ loadMapData = () => {
+   API.getSearchData(this.state.user.user.id)
+     .then(res =>
+       this.setUserState(res.data),
+     ).then(()=>
+       this.loadMap()
+     )
+     .catch(err => console.log(err));
+ }
+
+ setUserState = (data) => {
+  this.setState({toMap: data});
+}
+
+loadMap = () => {
+  //for putting in the map on page
+}
+
+
+
     render() {
       return (
         <div>
