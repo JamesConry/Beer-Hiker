@@ -112,10 +112,10 @@ class Results extends Component {
           </form>
           <div className={`right`}>
             <Link to="/beer">
-              <button className="button is-primary has-text-weight-bold">New Search</button>
+              <button className="button is-warning hoverable has-text-weight-bold">New Search</button>
             </Link>
             <Link to="/map">
-              <button onClick={this.onSearchClick} className="button is-black has-text-weight-bold">Map</button>
+              <button onClick={this.onSearchClick} className="button is-warning hoverable has-text-weight-bold">Map</button>
             </Link>
           </div>
         </div>
