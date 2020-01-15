@@ -28,6 +28,7 @@
     "nodemon": "^2.0.2",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "react-map-gl": "^5.2.1",
     "validator": "^12.1.0"
   }
 }
