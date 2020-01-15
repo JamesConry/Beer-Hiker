@@ -129,19 +129,19 @@ class Results extends Component {
               <div className="card is-horizontal columns" >
                 <div className="card-image column is-three-fifths" >
 
-              
+                <label class="containerCheck">
+                  <input type="checkbox"/>
+                  <span class="checkmark"></span>
+                </label>
 
                   <div className="media-content">
-                    <label class="containerCheck">
-                      <input type="checkbox"/>
-                      <span class="checkmark"></span>
-                    </label>
                     <p className="title is-4">Once upon a time there was a sailor</p>
                   </div>
 
                   <div className="content">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. 
                   </div>
+                  
                 </div>
               </div>
             </div> */}
