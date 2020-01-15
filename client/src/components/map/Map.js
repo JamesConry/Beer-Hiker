@@ -91,9 +91,4 @@ loadMap = () => {
     { logoutUser }
   )(Map);
   
-  // export default Map;
-  
-  
-  
-  
   
