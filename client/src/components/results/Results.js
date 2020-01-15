@@ -108,11 +108,11 @@ class Results extends Component {
                       <input type="checkbox"/>
                       <span className="checkmark"></span>
                     </label>
-                <p className="title is-4">{brew.name}</p>
+                <p className="title is-4 has-text-left">{brew.name}</p>
                   </div>
 
                   <div className="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. 
+                    <p className="breweryInfo is-size-6 has-text-left">{brew.brewery_type} | {brew.street}, {brew.city} | {brew.phone} | {brew.website_url} </p>
                   </div>
                 </div>
               </div>
@@ -149,10 +149,10 @@ class Results extends Component {
           </form>
           <div className={`right`}>
             <Link to="/beer">
-              <button className="button is-primary has-text-weight-bold">New Search</button>
+              <button className="button is-warning hoverable has-text-weight-bold">New Search</button>
             </Link>
             <Link to="/map">
-              <button onClick={this.onSearchClick} className="button is-black has-text-weight-bold">Map</button>
+              <button onClick={this.onSearchClick} className="button is-warning hoverable has-text-weight-bold">Map</button>
             </Link>
             {/* <button onClick={this.onSearchClick} className="button is-black has-text-weight-bold">Testing</button> */}
           </div>
