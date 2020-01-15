@@ -53,10 +53,20 @@ class Results extends Component {
     this.setState({searchResults: data})
   }
 
-  onSearchClick = e => {
-    // e.preventDefault();
-
+  onSearchClick = event => {
+    API.saveResults(this.state.user.user.id, this.state.toMap)
   };
+
+  onCheckmark = brewery => {
+    if(this.state.toMap.includes(brewery.brew)){
+      var holder = this.state.toMap.indexOf(brewery.brew);
+      this.state.toMap.splice(holder, 1);
+    }
+    else{
+      this.state.toMap.push(brewery.brew)
+    }
+    console.log(this.state.toMap);
+  }
 
 
   render() {
@@ -75,76 +85,29 @@ class Results extends Component {
           <br />
           <form>
           <div className="container" >
-            
-          
-          
-            {/* <label className="checkbox">
-              <input type="checkbox">Test</input>
-            </label> */}
-            
 
             {this.state.searchResults.length ? (
-              // <List>
-                this.state.searchResults.map(brew => (
-                  // <ListItem key={brew._id}>
-                  //   <Link to={"/brews/" + brew._id}>
-                  //     <strong>
-                  //       {brew.volumeInfo.title} by {brew.volumeInfo.authors}
-                  //     </strong>
-                  //   </Link>
-                  //   {/* <DeleteBtn onClick={() => this.deletebrew(brew._id)} /> */}
-                  //   <FormBtn onClick={() => this.handlebrewSave(brew)}>
-                  //   Save brew
-                  //   </FormBtn>
-                  // </ListItem>
-                  <div className="section" >
-              <div className="card is-horizontal columns" >
-                <div className="card-image column is-three-fifths" >
-
-              
-
-                  <div className="media-content">
-                    <label className="containerCheck">
-                      <input type="checkbox"/>
-                      <span className="checkmark"></span>
-                    </label>
-                <p className="title is-4">{brew.name}</p>
-                  </div>
-
-                  <div className="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. 
+              this.state.searchResults.map(brew => (
+                <div className="section" >
+                  <div className="card is-horizontal columns" >
+                    <div className="card-image column is-three-fifths" >
+                      <div className="media-content">
+                        <label className="containerCheck">
+                          <input type="checkbox" onClick={() => this.onCheckmark({brew})}/>
+                          <span className="checkmark"></span>
+                        </label>
+                        <p className="title is-4">{brew.name}</p>
+                      </div>
+                      <div className="content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. 
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-                ))
-              
+              ))
             ) : (
               <h3>No Results to Display</h3>
             )}
-            
-            
-            {/* <div className="section" >
-              <div className="card is-horizontal columns" >
-                <div className="card-image column is-three-fifths" >
-
-                <label class="containerCheck">
-                  <input type="checkbox"/>
-                  <span class="checkmark"></span>
-                </label>
-
-                  <div className="media-content">
-                    <p className="title is-4">Once upon a time there was a sailor</p>
-                  </div>
-
-                  <div className="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. 
-                  </div>
-                  
-                </div>
-              </div>
-            </div> */}
           </div>
           </form>
           <div className={`right`}>
@@ -154,7 +117,6 @@ class Results extends Component {
             <Link to="/map">
               <button onClick={this.onSearchClick} className="button is-black has-text-weight-bold">Map</button>
             </Link>
-            {/* <button onClick={this.onSearchClick} className="button is-black has-text-weight-bold">Testing</button> */}
           </div>
         </div>
       </div>
