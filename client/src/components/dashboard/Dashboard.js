@@ -17,8 +17,24 @@ class Dashboard extends Component {
     const { user } = this.props.auth;
 
     return (
-      <div>
+      <div class="background">
         <NavBarIn />
+        <section class="hero col s12 center-align">
+        <div class="hero-head">
+          <div class="container">
+          <section class="hero is-large has-sm-img"> 
+        <div class="hero-body"> 
+          <div class="container has-text-centered"> 
+          <div className="container valign-wrapper">
+          </div>
+            </div> 
+          </div> 
+        </section>
+          </div>
+        </div>
+      </section>
+      <br/>
+      <div className="container registerForm">
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="landing-copy col s12 center-align">
@@ -38,12 +54,13 @@ class Dashboard extends Component {
                   letterSpacing: "1.5px",
                   marginTop: "1rem"
                 }}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                className="btn btn-large waves-effect waves-light hoverable orange accent-3"
               >
                 Search
               </Link>
           </div>
         </div>
+      </div>
       </div>
       </div>
     );

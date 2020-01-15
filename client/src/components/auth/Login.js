@@ -54,9 +54,18 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div>
+      <div className="background">
         <NavBarOut />
-      <div className="container">
+        <section class="hero col s12 center-align">
+          <div class="hero-head">
+            <div class="container">
+              <section class="hero is-large has-sm-img"> 
+              </section>
+            </div>
+          </div>
+        </section>
+      <br/>
+      <div className="container registerForm">
         <div style={{ marginTop: "4rem" }} className="row">
           <div className="col s8 offset-s2">
             <Link to="/" className="btn-flat waves-effect">
@@ -115,7 +124,7 @@ class Login extends Component {
                     marginTop: "1rem"
                   }}
                   type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  className="btn btn-large waves-effect waves-light hoverable orange accent-3"
                 >
                   Login
                 </button>
