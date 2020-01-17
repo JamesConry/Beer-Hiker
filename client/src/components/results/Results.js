@@ -90,7 +90,7 @@ class Results extends Component {
 
             <h1>
               {" "}
-              <span>SEARCH FOR A BREWERY</span>
+              <span>BREWERY RESULTS</span>
             </h1>
           </div>
           <br />
@@ -99,25 +99,31 @@ class Results extends Component {
 
             {this.state.searchResults.length ? (
               this.state.searchResults.map(brew => (
-                <div className="section" >
+                <div className="section breweryCard" >
                   <div className="card is-horizontal columns" >
-                    <div className="card-image column is-three-fifths" >
-                      <div className="media-content">
-                        <label className="containerCheck">
-                          <input type="checkbox" onClick={() => this.onCheckmark({brew})}/>
-                          <span className="checkmark"></span>
-                        </label>
-                        <p className="title is-4">{brew.name}</p>
-                      </div>
-                      <div className="content">
-                        <p className="breweryTypeAddress is-5">{brew.brewery_type} | {brew.street}, {brew.city} | {this.formatPhoneNumber(brew.phone)}</p>
-                        <a>{brew.website_url}</a>
-                        
-
+                    <div className="card-image column" >
+                        <div className="columns is-one-quarter"> 
+                          <label className="containerCheck">
+                            <input type="checkbox" onClick={() => this.onCheckmark({brew})}/>
+                            <span className="checkmark"></span>
+                          </label>
+                          <div className="column">
+                            <p className="breweryTypeAddress">
+                              <strong>
+                                <ins>
+                                  {brew.name}
+                                </ins>
+                              </strong> 
+                              <br/>
+                              <b>Type: </b>{brew.brewery_type} | <b>Address: </b>{brew.street}, {brew.city} | <b>Phone: </b>{this.formatPhoneNumber(brew.phone)}</p>
+                            <a href={brew.website_url}>{brew.website_url}</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+
+                  
               ))
             ) : (
               <h3>No Results to Display</h3>
