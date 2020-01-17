@@ -142,9 +142,16 @@ loadMap = () => {
   ) 
 }
 
-
-
-
+// onCheckmark = brewery => {
+//   if(this.state.toMap.includes(brewery.brew)){
+//     var holder = this.state.toMap.indexOf(brewery.brew);
+//     this.state.toMap.splice(holder, 1);
+//   }
+//   else{
+//     this.state.toMap.push(brewery.brew)
+//   }
+//   console.log(this.state.toMap);
+// };
 
     render() {
       const handleKey = window.addEventListener("keydown", this.handleKeyboardEvent);
@@ -195,8 +202,29 @@ loadMap = () => {
             <div className="container" >
             {this.state.toMap.length ? (
               this.state.toMap.map(brew => (
-                console.log("holder")
-                //card with list?
+
+                <div className="section breweryCard" >
+                  <div className="card is-horizontal columns" >
+                    <div className="card-image column" >
+                        <div className="columns is-one-quarter"> 
+                          <label className="containerCheck">
+                            <input type="checkbox" onClick={() => this.onCheckmark({brew})}/>
+                            <span className="checkmark"></span>
+                          </label>
+                          <div className="column">
+                            <p className="breweryTypeAddress">
+                              <strong>
+                                <ins>
+                                  {brew.name}
+                                </ins>
+                              </strong> 
+                              <br/>
+                              <b>Address: </b>{brew.street}, {brew.city}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                ))
               ) : (
                 <h3>No Results to Display</h3>
