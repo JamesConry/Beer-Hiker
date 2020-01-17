@@ -35,7 +35,8 @@ class Map extends Component {
         loc_name: null,
         user: [],
     toMap: [],
-    toSave: []
+    toSave: [],
+    hasCoord: []
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -114,10 +115,19 @@ handleKeyboardEvent = e => {
 
 loadMap = () => {
   //for putting in the map on page
+  let tempArr = [];
+  console.log(this.state.toMap.mapBreweries[0]);
+  for(var i=0; i<this.state.toMap.mapBreweries.length; i++){
+    if(this.state.toMap.mapBreweries[i].latitude){
+      tempArr.push(this.state.toMap.mapBreweries[i]);
+    }
+  }
+  this.setState({hasCoord: tempArr})
+  
   this.setState(
-    {api : this.state.toMap.mapBreweries,
+    {api : this.state.hasCoord,
      user: this.props.auth,
-     navData: this.state.toMap.mapBreweries.map(data => <Address key={data.id} places={data} handleClick={this.handleClick} handleOnChange={this.handleOnChange} />),
+     navData: this.state.hasCoord.map(data => <Address key={data.id} places={data} handleClick={this.handleClick} handleOnChange={this.handleOnChange} />),
      done: true,
         viewport: {
             width: '100vw',
@@ -130,7 +140,6 @@ loadMap = () => {
         setViewPort: null
     },
   ) 
-  console.log(this.state.api);
 }
 
 
