@@ -44,6 +44,6 @@ const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
 
-if(process.env.NODE.ENV == "production") {
+if(process.env.NODE_ENV == "production") {
   app.use(express.static("client/build"));
 }
