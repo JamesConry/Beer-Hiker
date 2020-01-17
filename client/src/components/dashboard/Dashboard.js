@@ -80,7 +80,7 @@ class Dashboard extends Component {
         </div>
         <div className="row">
             
-            {this.state.searchData.search && this.state.searchData.mapBreweries ? (
+            {this.state.searchData.search && this.state.searchData.mapBreweries[0] ? (
               <div>
                 <p>Last Search: {this.state.searchData.search[0]}</p>
                 <p>Last Mapped: {this.state.searchData.mapBreweries[0].name}</p>
