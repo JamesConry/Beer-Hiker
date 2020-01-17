@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5116286e.chunk.css",
+    "main.js": "/static/js/main.90a9b54b.chunk.js",
+    "main.js.map": "/static/js/main.90a9b54b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d07f956b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d07f956b.js.map",
+    "static/css/2.70d9d258.chunk.css": "/static/css/2.70d9d258.chunk.css",
+    "static/js/2.b73eb68f.chunk.js": "/static/js/2.b73eb68f.chunk.js",
+    "static/js/2.b73eb68f.chunk.js.map": "/static/js/2.b73eb68f.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.68fd0395d612714daf52d64861ba4af8.js": "/precache-manifest.68fd0395d612714daf52d64861ba4af8.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.70d9d258.chunk.css.map": "/static/css/2.70d9d258.chunk.css.map",
+    "static/css/main.5116286e.chunk.css.map": "/static/css/main.5116286e.chunk.css.map",
+    "static/js/2.b73eb68f.chunk.js.LICENSE": "/static/js/2.b73eb68f.chunk.js.LICENSE",
+    "static/media/BeerHikerLogo2.jpg": "/static/media/BeerHikerLogo2.206ad003.jpg",
+    "static/media/Landing.css": "/static/media/glassLineupBig2.510b7e4a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d07f956b.js",
+    "static/css/2.70d9d258.chunk.css",
+    "static/js/2.b73eb68f.chunk.js",
+    "static/css/main.5116286e.chunk.css",
+    "static/js/main.90a9b54b.chunk.js"
+  ]
+}
