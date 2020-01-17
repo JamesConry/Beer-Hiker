@@ -19,6 +19,17 @@ class Results extends Component {
     searchResults: [],
     toMap: []
   };
+
+  formatPhoneNumber = (str) => {
+    //Filter only numbers from the input
+    let cleaned = ('' + str).replace(/\D/g, '');
+    //Check if the input is of correct length
+    let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+      return match[1] + '-' + match[2] + '-' + match[3]
+    };
+    return str
+  };
   
 
    componentDidMount() {
@@ -99,7 +110,7 @@ class Results extends Component {
                         <p className="title is-4">{brew.name}</p>
                       </div>
                       <div className="content">
-                        <p className="breweryTypeAddress is-5">{brew.brewery_type} | {brew.street}, {brew.city} | {brew.phone}</p>
+                        <p className="breweryTypeAddress is-5">{brew.brewery_type} | {brew.street}, {brew.city} | {this.formatPhoneNumber(brew.phone)}</p>
                         <a>{brew.website_url}</a>
                         
 
