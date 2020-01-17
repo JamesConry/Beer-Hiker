@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./map.css";
+// import "./map.css";
 import 'bulma/css/bulma.css';
 import { Link } from "react-router-dom";
 import NavBarIn from "../NavBarIn/NavBarIn";
