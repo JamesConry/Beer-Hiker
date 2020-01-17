@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./map.css";
 import 'bulma/css/bulma.css';
 import { Link } from "react-router-dom";
 import NavBarIn from "../NavBarIn/NavBarIn";
@@ -10,7 +11,7 @@ import ReactMapGL, {Marker, Popup} from 'react-map-gl';
 import coord from './coord.js';
 import NavBar from './navbar';
 import Address from './addresses'
-import "./map.css";
+
 
 
 class Map extends Component {
@@ -184,7 +185,18 @@ loadMap = () => {
                         onViewportChange={(viewport) => this.setState({viewport})}>
                 {this.state.navData.map(data => (
                     <Marker key={data.props.places.id} latitude={parseFloat(data.props.places.latitude)} longitude={parseFloat(data.props.places.longitude)}>
-                        <div className="mapMarkerStyle">{data.props.places.name[0]}<i className="fa fa-map-marker"></i></div>
+                        <div 
+                        style="background-color: blue;
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        display: block;
+                        left: -0.5rem;
+                        top: -0.5rem;
+                        position: relative;
+                        border-radius: 1.5rem 1.5rem 0;
+                        transform: rotate(45deg);
+                        border: 1px solid #FFFFFF;">
+                          {data.props.places.name[0]}<i className="fa fa-map-marker"></i></div>
                     </Marker>
                 ))}
                 {/* {this.state.latt && this.state.lngg ?
