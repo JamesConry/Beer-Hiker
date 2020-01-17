@@ -123,8 +123,8 @@ loadMap = () => {
             width: '100vw',
             height: '100vh',
             marginLeft: '20vw',
-            latitude: 36.1627,
-            longitude: -86.7816,
+            latitude: parseFloat(this.state.toMap.mapBreweries[0].latitude),
+            longitude: parseFloat(this.state.toMap.mapBreweries[0].longitude),
             zoom: 8
         },
         setViewPort: null
@@ -156,9 +156,8 @@ loadMap = () => {
                         mapStyle="mapbox://styles/isioma/cjzi11o2t2yjv1cqlraiqesb0"
                         onViewportChange={(viewport) => this.setState({viewport})}>
                 {this.state.navData.map(data => (
-                  console.log(data),
                     <Marker key={data.props.places.id} latitude={parseFloat(data.props.places.latitude)} longitude={parseFloat(data.props.places.longitude)}>
-                        <div className="mapMarkerStyle"><i className="fa fa-map-marker"></i></div>
+                        <div className="mapMarkerStyle">{data.props.places.name[0]}<i className="fa fa-map-marker"></i></div>
                     </Marker>
                 ))}
                 {/* {this.state.latt && this.state.lngg ?
@@ -188,6 +187,7 @@ loadMap = () => {
             {this.state.toMap.length ? (
               this.state.toMap.map(brew => (
                 console.log("holder")
+                //card with list?
                ))
               ) : (
                 <h3>No Results to Display</h3>
