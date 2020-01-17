@@ -127,6 +127,13 @@ loadMap = () => {
     }
   }
   this.setState({hasCoord: tempArr})
+  if(this.state.hasCoord.length<1){
+    this.setState({hasCoord: [{
+      name: "No search results Available",
+      latitude: 36.1627,
+      longitude: 86.7816
+    }]})
+  }
   
   this.setState(
     {api : this.state.hasCoord,
@@ -137,8 +144,8 @@ loadMap = () => {
             width: '100vw',
             height: '100vh',
             marginLeft: '20vw',
-            latitude: parseFloat(this.state.toMap.mapBreweries[0].latitude),
-            longitude: parseFloat(this.state.toMap.mapBreweries[0].longitude),
+            latitude: parseFloat(this.state.hasCoord[0].latitude),
+            longitude: parseFloat(this.state.hasCoord[0].longitude),
             zoom: 8
         },
         setViewPort: null
