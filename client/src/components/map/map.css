@@ -1,5 +1,3 @@
-
-
 .mapMarkerStyle {
     background-color: blue;
     width: 1.5rem;
@@ -11,4 +9,8 @@
     border-radius: 1.5rem 1.5rem 0;
     transform: rotate(45deg);
     border: 1px solid #FFFFFF;
-  };
+  }
+  
+
+  
+  
