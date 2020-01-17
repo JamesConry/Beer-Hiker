@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // DB Config
-const db = require("./config/keys").mongoURI;
+const db = process.env.MONGODB_URI || require("./config/keys").mongoURI;
 
 // Connect to MongoDB
 mongoose
@@ -43,3 +43,7 @@ app.use(routes);
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+
+if(process.env.NODE.ENV == "production") {
+  app.use(express.static("client/build"));
+}
