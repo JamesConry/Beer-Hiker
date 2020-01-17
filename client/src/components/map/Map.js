@@ -122,6 +122,7 @@ onSearchClick = event => {
 loadMap = () => {
   //for putting in the map on page
   let tempArr = [];
+  console.log(this.state.toMap.mapBreweries)
   for(var i=0; i<this.state.toMap.mapBreweries.length; i++){
     if(this.state.toMap.mapBreweries[i].latitude){
       tempArr.push(this.state.toMap.mapBreweries[i]);
@@ -132,7 +133,8 @@ loadMap = () => {
     this.setState({hasCoord: [{
       name: "No search results Available",
       latitude: 36.1627,
-      longitude: 86.7816
+      longitude: -86.7816,
+      id: 1
     }]})
   }
   
@@ -185,7 +187,7 @@ loadMap = () => {
                         onViewportChange={(viewport) => this.setState({viewport})}>
                 {this.state.navData.map(data => (
                     <Marker key={data.props.places.id} latitude={parseFloat(data.props.places.latitude)} longitude={parseFloat(data.props.places.longitude)}>
-                        <div 
+                        <div className= "mapMarkerStyle" 
                         style="background-color: blue;
                         width: 1.5rem;
                         height: 1.5rem;
@@ -195,8 +197,10 @@ loadMap = () => {
                         position: relative;
                         border-radius: 1.5rem 1.5rem 0;
                         transform: rotate(45deg);
-                        border: 1px solid #FFFFFF;">
-                          {data.props.places.name[0]}<i className="fa fa-map-marker"></i></div>
+                        border: 1px solid #FFFFFF;
+                        ">
+                          {data.props.places.name[0]}<i className="fa fa-map-marker"></i>
+                          </div>
                     </Marker>
                 ))}
                 {/* {this.state.latt && this.state.lngg ?
@@ -224,7 +228,7 @@ loadMap = () => {
             <br />
             <div className="container" >
             {this.state.toMap.mapBreweries ? (
-              this.state.toMap.mapBreweries.map(brew => (
+              this.state.hasCoord.map(brew => (
 
                 <div className="section breweryCard" >
                   <div className="card is-horizontal columns" >
