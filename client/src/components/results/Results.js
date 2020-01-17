@@ -76,7 +76,6 @@ class Results extends Component {
     else{
       this.state.toMap.push(brewery.brew)
     }
-    console.log(this.state.toMap);
   }
 
 
