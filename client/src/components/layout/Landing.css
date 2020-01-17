@@ -8,16 +8,16 @@
 
 }
 
-.bigSamples {
+.has-sm-img { 
 
-    background: url("../../images/beerSamples.jpg"); 
+    background: url("../../images/glassLineupBig2.jpg")center center; 
     background-size:cover; 
     width: 960px;
-    height: 500px;
+    height: 300px;
     margin-left: auto;
     margin-right: auto;
-    
-}
+
+};
 
 .welcomeContainer {
 

@@ -13,7 +13,7 @@
 }
 
 .right > * {
-    margin-left: 2rem;
+    margin-left: 1.5rem;
 }
 
 .logo {
@@ -21,7 +21,3 @@
     width: 350px;
 }
 
-.loginText {
-    font-size: smaller;
-    padding-left: 10px;
-}
