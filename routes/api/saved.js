@@ -3,7 +3,7 @@ const profileController = require("../../controllers/profileController");
 
 
 
-router.route("/saved/:id")
+router.route("/:id")
   .get(profileController.findUserSearch)
   .put(profileController.updateSaved);
 

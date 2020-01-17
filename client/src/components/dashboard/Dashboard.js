@@ -5,6 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 import { Link } from "react-router-dom";
 import NavBarIn from "../NavBarIn/NavBarIn"
 import API from "../../utils/API";
+import NavBarDash from "../NavBarDash/NavBarDash";
 
 class Dashboard extends Component {
 
@@ -36,7 +37,7 @@ class Dashboard extends Component {
 
     return (
       <div class="background">
-        <NavBarIn />
+        <NavBarDash />
         <section class="hero col s12 center-align">
         <div class="hero-head">
           <div class="container">
@@ -80,13 +81,53 @@ class Dashboard extends Component {
         </div>
         <div className="row">
             
-            {this.state.searchData.search && this.state.searchData.mapBreweries[0] ? (
-              <div>
-                <p>Last Search: {this.state.searchData.search[0]}</p>
-                <p>Last Mapped: {this.state.searchData.mapBreweries[0].name}</p>
-              </div>
+            {this.state.searchData.search ? (
+                this.state.searchData.search.map(brew => (
+                    <p>
+                    Last Searches: {brew || "Not Used"}
+                  </p>
+                )
+                )
+
+                // <p>Last Search: {this.state.searchData.search[0]}</p>
+                // <p>Last Mapped: {this.state.searchData.mapBreweries[0].name}</p>
+                
               ) : (
-                <h3>No Results to Display</h3>
+                <h3>No Search Data to Display</h3>
+              )}
+          </div>
+          <div className="row">
+            
+            {this.state.searchData.mapBreweries ? (
+                this.state.searchData.mapBreweries.map(brew => (
+                    <p>
+                    Last Mapped: {brew.name}
+                  </p>
+                )
+                )
+
+                // <p>Last Search: {this.state.searchData.search[0]}</p>
+                // <p>Last Mapped: {this.state.searchData.mapBreweries[0].name}</p>
+                
+              ) : (
+                <h3>No Search Data to Display</h3>
+              )}
+          </div>
+          <div className="row">
+            
+            {this.state.searchData.savedBreweries ? (
+                this.state.searchData.savedBreweries.map(brew => (
+                    <p>
+                    Last Saved: {brew.name}
+                  </p>
+                )
+                )
+
+                // <p>Last Search: {this.state.searchData.search[0]}</p>
+                // <p>Last Mapped: {this.state.searchData.mapBreweries[0].name}</p>
+                
+              ) : (
+                <h3>No Search Data to Display</h3>
               )}
           </div>
       </div>

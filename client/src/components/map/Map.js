@@ -43,15 +43,7 @@ class Map extends Component {
 }
 
   componentDidMount() {
-  // this.setState({user: })
-  // .then(() => 
-  
-  
   this.loadMapData(this.props.auth)
-  
-  
-
-  
  }
 
  handleClick = (id) => {
@@ -98,6 +90,15 @@ handleKeyboardEvent = e => {
    return window.removeEventListener("keydown", this);
 }
 
+onCheckmark = brewery => {
+  if(this.state.toSave.includes(brewery.brew)){
+    var holder = this.state.toSave.indexOf(brewery.brew);
+    this.state.toSave.splice(holder, 1);
+  }
+  else{
+    this.state.toSave.push(brewery.brew)
+  }
+}
 
  loadMapData = (temp) => {
    API.getSearchData(temp.user.id)
@@ -113,10 +114,13 @@ handleKeyboardEvent = e => {
   this.setState({toMap: data});
 }
 
+onSearchClick = event => {
+  API.saveFavorites(this.state.user.user.id, this.state.toSave)
+};
+
 loadMap = () => {
   //for putting in the map on page
   let tempArr = [];
-  console.log(this.state.toMap.mapBreweries[0]);
   for(var i=0; i<this.state.toMap.mapBreweries.length; i++){
     if(this.state.toMap.mapBreweries[i].latitude){
       tempArr.push(this.state.toMap.mapBreweries[i]);
@@ -200,8 +204,8 @@ loadMap = () => {
             </div>
             <br />
             <div className="container" >
-            {this.state.toMap.length ? (
-              this.state.toMap.map(brew => (
+            {this.state.toMap.mapBreweries ? (
+              this.state.toMap.mapBreweries.map(brew => (
 
                 <div className="section breweryCard" >
                   <div className="card is-horizontal columns" >
@@ -234,8 +238,8 @@ loadMap = () => {
               <Link to="/beer">
                 <button className="button is-primary has-text-weight-bold">New Search</button>
               </Link>
-              <Link to="/map">
-                <button className="button is-black has-text-weight-bold">Save Breweries</button>
+              <Link to="/dashboard">
+                <button onClick={this.onSearchClick} className="button is-black has-text-weight-bold">Save Breweries</button>
               </Link>
             </div>
           </div>
