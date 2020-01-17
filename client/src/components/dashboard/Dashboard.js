@@ -4,8 +4,26 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { Link } from "react-router-dom";
 import NavBarIn from "../NavBarIn/NavBarIn"
+import API from "../../utils/API";
 
 class Dashboard extends Component {
+
+  state = {
+    user: this.props.auth,
+    searchData: []
+  };
+
+  componentDidMount() {
+    API.getSearchData(this.state.user.user.id)
+      .then(res =>
+        this.setUserState(res.data),
+      )
+      .catch(err => console.log(err));
+   }
+
+   setUserState = (data) => {
+    this.setState({searchData: data});
+  }
 
 
   onSearchClick = e => {
@@ -60,6 +78,17 @@ class Dashboard extends Component {
               </Link>
           </div>
         </div>
+        <div className="row">
+            
+            {this.state.searchData.search ? (
+              <div>
+                <p>Last Search: {this.state.searchData.search[0]}</p>
+                <p>Last Mapped: {this.state.searchData.mapBreweries[0].name}</p>
+              </div>
+              ) : (
+                <h3>No Results to Display</h3>
+              )}
+          </div>
       </div>
       </div>
       </div>

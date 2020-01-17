@@ -4,7 +4,11 @@ import NavBarOut from "../NavBarOut/NavBarOut";
 import "../layout/Landing.css";
 import logo from '../../images/BeerHikerLogo2.jpg';
 
+
 class Landing extends Component {
+
+  
+
   render() {
     return (
       <div class="background">
@@ -68,6 +72,7 @@ class Landing extends Component {
               </div>
             </div>
           </div>
+          
         </div>
       
       
