@@ -30,7 +30,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "react-map-gl": "^5.2.1",
-    "validator": "^12.1.0"
+    "validator": "^13.7.0"
   },
   "homepage": "https://beer-hiker.herokuapp.com/"
 }
